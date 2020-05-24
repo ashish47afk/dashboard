@@ -1,0 +1,16 @@
+.own{
+    display: flex;
+    justify-content: flex-end;
+    float: left;
+    font-size: 35px;
+}
+.title{
+    display: flex;
+    justify-content: flex-end;
+    float: left;
+    font-size: 30px;
+}
+.sidebar-name{
+    font-weight: bolder;
+    color: honeydew;
+}
