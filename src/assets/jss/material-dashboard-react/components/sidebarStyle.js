@@ -23,7 +23,7 @@ const sidebarStyle = theme => ({
     bottom: "0",
     left: "0",
     zIndex: "1",
-    ...boxShadow,
+    //...boxShadow,
     width: drawerWidth,
     [theme.breakpoints.up("md")]: {
       width: drawerWidth,
@@ -32,7 +32,7 @@ const sidebarStyle = theme => ({
     },
     [theme.breakpoints.down("sm")]: {
       width: drawerWidth,
-      ...boxShadow,
+      //...boxShadow,
       position: "fixed",
       display: "block",
       top: "0",
@@ -124,7 +124,7 @@ const sidebarStyle = theme => ({
       height: "100%",
       content: '""',
       display: "block",
-      background: blackColor
+      background: "rgb(116, 107, 137)"
     }
   },
   list: {

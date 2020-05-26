@@ -13,7 +13,7 @@ import {
 
 const headerStyle = () => ({
   appBar: {
-    backgroundColor: "transparent",
+    background: "linear-gradient(to right, rgb(116, 107, 137), rgb(68, 73, 99));",
     boxShadow: "none",
     borderBottom: "0",
     marginBottom: "0",

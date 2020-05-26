@@ -13,7 +13,7 @@ const useStyles = makeStyles(styles);
 export default function Footer(props) {
   const classes = useStyles();
   return (
-    <p></p>/*
+    <div></div>/*
     <footer className={classes.footer}>
       <div className={classes.container}>
         <div className={classes.left}>

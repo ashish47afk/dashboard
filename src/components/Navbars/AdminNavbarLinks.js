@@ -2,6 +2,7 @@ import React from "react";
 import classNames from "classnames";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
+import AddBoxSharpIcon from '@material-ui/icons/AddBoxSharp';
 import MenuItem from "@material-ui/core/MenuItem";
 import MenuList from "@material-ui/core/MenuList";
 import Grow from "@material-ui/core/Grow";
@@ -48,7 +49,12 @@ export default function AdminNavbarLinks() {
     setOpenProfile(null);
   };
   return (
-    <p></p>/*
+    <div className="plus-icon" >
+      <AddBoxSharpIcon className="plusicon" fontSize="large"
+      color="primary" variant="contained" padding= '0 30px' border="0"
+      />
+    </div>
+    /*
     <div>
       <div className={classes.searchWrapper}>
         <CustomInput

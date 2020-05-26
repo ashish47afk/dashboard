@@ -188,3 +188,34 @@ module.exports = {
   emailsSubscriptionChart,
   completedTasksChart
 };
+/*
+<div style={{ position: "relative", width: 600, height: 550}}>
+              <h3>Chart Sample</h3>
+              <Line
+              options={{
+                responsive: true
+              }}
+              data={state}
+              />
+            </div>
+
+
+
+             <Bar
+          data={state}
+          width={70}
+          height={20}
+          options={{
+            ticks: { min: 0 },
+            title:{
+              display:true,
+              text:'Stock Sold Monthly',
+              fontSize:10
+            },
+            legend:{
+              display:true,
+              position:'right'
+            }
+          }}
+        />
+            */

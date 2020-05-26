@@ -25,7 +25,8 @@ const appStyle = theme => ({
   content: {
     marginTop: "70px",
     padding: "30px 15px",
-    minHeight: "calc(100vh - 123px)"
+    minHeight: "calc(100vh - 123px)",
+    background: "linear-gradient(to right, rgb(116, 107, 137), rgb(68, 73, 99))"
   },
   container,
   map: {

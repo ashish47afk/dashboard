@@ -1,6 +1,12 @@
 import React from "react";
+
 // react plugin for creating charts
 import ChartistGraph from "react-chartist";
+import {Line} from 'react-chartjs-2';
+import Pie1 from '../Pie1/Pie1.js';
+import Pie2 from '../Pie2/Pie2.js';
+import Pie3 from '../Pie3/Pie3.js';
+import '../../assets/css/dashboard.css'
 // @material-ui/core
 import { makeStyles } from "@material-ui/core/styles";
 import Icon from "@material-ui/core/Icon";
@@ -32,6 +38,7 @@ import CardBody from "components/Card/CardBody.js";
 import CardFooter from "components/Card/CardFooter.js";
 import {Bar} from 'react-chartjs-2';
 
+
 import { bugs, website, server } from "variables/general.js";
 
 import {
@@ -42,6 +49,8 @@ import {
 
 import styles from "assets/jss/material-dashboard-react/views/dashboardStyle.js";
 
+
+
 const useStyles = makeStyles(styles);
 
 const state = {
@@ -50,7 +59,7 @@ const state = {
   datasets: [
     {
       label: '% Stock Sold',
-      backgroundColor: 'rgba(75,192,192,1)',
+      backgroundColor: 'rgb(163, 107, 255)',
       borderColor: 'rgba(0,0,0,1)',
       borderWidth: 3,
       data: [73, 64, 76, 59, 48, 51, 49, 78, 54, 78, 88, 92]
@@ -66,33 +75,50 @@ export default function Dashboard() {
         <GridItem xs={10} sm={12} md={4}>
           <Card>
             <CardHeader color="warning" stats icon>
+              <div className="height">
               <div className="own">
                 <p className={classes.cardPara}>Reviews</p>
               </div>
               <p className={classes.cardCategory}><MoreVertIcon /></p>
               <div className="title">
               <h3 className={classes.cardTitle}>
+                <div className="total-reviews">
                 1,281
+                </div>
               </h3>
+              </div>
               </div>
             </CardHeader>
             <CardFooter stats>
               <div className={classes.stats}>
               </div>
+              <div className="wrapper1">
+                  Positive <br/><div className="rev">Put +</div> 
+                </div>
+                <div className="centerline">
+                  
+                </div>
+                <div className="wrapper2">
+                  Negative<br/><div  className="rev">Put -</div>
+                </div>
             </CardFooter>
           </Card>
         </GridItem>
         <GridItem xs={10} sm={12} md={4}>
           <Card>
             <CardHeader color="warning" stats icon>
+            <div className="height">
             <div className="own">
                 <p className={classes.cardPara}>AV. Rating</p>
               </div>
               <p className={classes.cardCategory}><MoreVertIcon /></p>
               <div className="title">
               <h3 className={classes.cardTitle}>
+                <div className="av-rating">
                 4.6 
+                </div>
               </h3>
+              </div>
               </div>
             </CardHeader>
             <CardFooter stats>
@@ -104,14 +130,22 @@ export default function Dashboard() {
         <GridItem xs={10} sm={12} md={4}>
           <Card>
             <CardHeader color="warning" stats icon>
+            <div className="height">
             <div className="own">
-                <p className={classes.cardPara}>Sentiment Analysis</p>
+                <p className={classes.cardPara}>Analysis</p>
               </div>
               <p className={classes.cardCategory}><MoreVertIcon /></p>
-              <div className="title">
-              <h3 className={classes.cardTitle}>
-                5
-              </h3>
+              <div className="title3">
+                <Pie1 /> <div className="pie-name">Positive Reviews</div>
+              </div>
+              <br /><br /><br /><br />
+              <div className="title3">
+                <Pie2 />  <div className="pie-name">Neutral Reviews</div>
+              </div>
+              <br /><br /><br />
+              <div className="title3">
+                <Pie3 />  <div className="pie-name">Negative Reviews</div>
+              </div>
               </div>
             </CardHeader>
             <CardFooter stats>
@@ -124,26 +158,18 @@ export default function Dashboard() {
       <GridContainer>
       <GridItem xs={12} sm={12} md={12}>
           <Card chart>
-            <CardHeader color="warning">
-            <Bar
-          data={state}
-          width={70}
-          height={20}
-          options={{
-            ticks: { min: 0 },
-            title:{
-              display:true,
-              text:'Stock Sold Monthly',
-              fontSize:10
-            },
-            legend:{
-              display:true,
-              position:'right'
-            }
-          }}
-        />
-            </CardHeader>
-            <CardBody>
+          <CardBody>
+          <div style={{ position: "relative"}}>
+              <h2 color="white">Converse Stock Sold</h2>
+              <Line
+              width={70}
+              height={20}
+              options={{
+                responsive: true
+              }}
+              data={state}
+              />
+            </div>
             </CardBody>
             <CardFooter chart>
             </CardFooter>

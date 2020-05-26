@@ -57,6 +57,7 @@ const transition = {
   transition: "all 0.33s cubic-bezier(0.685, 0.0473, 0.346, 1)"
 };
 
+
 const container = {
   paddingRight: "15px",
   paddingLeft: "15px",
@@ -153,6 +154,7 @@ const roseBoxShadow = {
     hexToRgb(roseColor[0]) +
     ",.4)"
 };
+
 
 const warningCardHeader = {
   background:
