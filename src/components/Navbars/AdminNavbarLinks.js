@@ -23,9 +23,17 @@ import Button from "components/CustomButtons/Button.js";
 import styles from "assets/jss/material-dashboard-react/components/headerLinksStyle.js";
 
 const useStyles = makeStyles(styles);
+const plus = makeStyles({
+  root: {
+    border: 0,
+    borderRadius: 3,
+    color: 'white'
+  },
+});
 
 export default function AdminNavbarLinks() {
   const classes = useStyles();
+  const dots = plus(); 
   const [openNotification, setOpenNotification] = React.useState(null);
   const [openProfile, setOpenProfile] = React.useState(null);
   const handleClickNotification = event => {
@@ -50,7 +58,7 @@ export default function AdminNavbarLinks() {
   };
   return (
     <div className="plus-icon" >
-      <AddBoxSharpIcon className="plusicon" fontSize="large"
+      <AddBoxSharpIcon className={dots.root} fontSize="large"
       color="primary" variant="contained" padding= '0 30px' border="0"
       />
     </div>

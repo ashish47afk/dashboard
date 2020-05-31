@@ -1,36 +1,24 @@
 import React from "react";
 
 // react plugin for creating charts
-import ChartistGraph from "react-chartist";
+
 import {Line} from 'react-chartjs-2';
 import Pie1 from '../Pie1/Pie1.js';
 import Pie2 from '../Pie2/Pie2.js';
 import Pie3 from '../Pie3/Pie3.js';
-import '../../assets/css/dashboard.css'
+import '../../assets/css/dashboard.css';
+import {Chart} from 'primereact/chart';
+import StarIcon from '@material-ui/icons/Star';
+import AccountCircleSharpIcon from '@material-ui/icons/AccountCircleSharp';
+import StarHalfOutlinedIcon from '@material-ui/icons/StarHalfOutlined';
 // @material-ui/core
+import PersonIcon from '@material-ui/icons/Person';
 import { makeStyles } from "@material-ui/core/styles";
-import Icon from "@material-ui/core/Icon";
 // @material-ui/icons
 import MoreVertIcon from '@material-ui/icons/MoreVert';
-import Store from "@material-ui/icons/Store";
-import Warning from "@material-ui/icons/Warning";
-import DateRange from "@material-ui/icons/DateRange";
-import LocalOffer from "@material-ui/icons/LocalOffer";
-import Update from "@material-ui/icons/Update";
-import ArrowUpward from "@material-ui/icons/ArrowUpward";
-import AccessTime from "@material-ui/icons/AccessTime";
-import Accessibility from "@material-ui/icons/Accessibility";
-import BugReport from "@material-ui/icons/BugReport";
-import Code from "@material-ui/icons/Code";
-import Cloud from "@material-ui/icons/Cloud";
 // core components
 import GridItem from "components/Grid/GridItem.js";
 import GridContainer from "components/Grid/GridContainer.js";
-import Dash from "assets/css/dashboard.css";
-import Table from "components/Table/Table.js";
-import Tasks from "components/Tasks/Tasks.js";
-import CustomTabs from "components/CustomTabs/CustomTabs.js";
-import Danger from "components/Typography/Danger.js";
 import Card from "components/Card/Card.js";
 import CardHeader from "components/Card/CardHeader.js";
 import CardIcon from "components/Card/CardIcon.js";
@@ -39,13 +27,6 @@ import CardFooter from "components/Card/CardFooter.js";
 import {Bar} from 'react-chartjs-2';
 
 
-import { bugs, website, server } from "variables/general.js";
-
-import {
-  dailySalesChart,
-  emailsSubscriptionChart,
-  completedTasksChart
-} from "variables/charts.js";
 
 import styles from "assets/jss/material-dashboard-react/views/dashboardStyle.js";
 
@@ -67,8 +48,104 @@ const state = {
   ]
 }
 
+const star = makeStyles({
+  root: {
+    border: 0,
+    borderRadius: 3,
+    color: 'white'
+  },
+});
+const size = {
+
+  largeIcon: {
+    width: 60,
+    height: 60,
+  },
+
+};
+
 export default function Dashboard() {
   const classes = useStyles();
+  const dots = star(); 
+  const data = {
+    labels: ['January', 'February', 'March', 'April', 'May'],
+    datasets: [
+        {
+            label: 'Total Customer Rating',
+            backgroundColor: '#42A5F5',
+            data: [4.3, 4.1, 4.3, 5.0, 4.6]
+        }
+    ]
+};
+
+const multiAxisData = {
+labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+datasets: [{
+label: 'Dataset 1',
+backgroundColor: [
+  '#EC407A',
+            '#AB47BC',
+            '#42A5F5',
+            '#7E57C2',
+            '#66BB6A',
+            '#FFCA28',
+            '#26A69A'
+],
+yAxisID: 'y-axis-1',
+data: [65, 59, 80, 81, 56, 55, 10]
+}]
+};
+
+const multiAxisOptions = {
+    responsive: true,
+    tooltips: {
+        mode: 'index',
+        intersect: true
+    },
+    scales: {
+        yAxes: [{
+            type: 'linear',
+            display: true,
+            position: 'left',
+            id: 'y-axis-1',
+            ticks: {
+                min: 0,
+                max: 100
+            }
+        },
+        {
+            type: 'linear',
+            display: true,
+            position: 'right',
+            id: 'y-axis-2',
+            gridLines: {
+                drawOnChartArea: false
+            },
+            ticks: {
+                min: 0,
+                max: 100
+            }
+        }]
+    }
+}
+
+
+
+const stackedOptions = {
+    tooltips: {
+        mode: 'index',
+        intersect: false
+    },
+    responsive: true,
+    scales: {
+        xAxes: [{
+            stacked: true,
+        }],
+        yAxes: [{
+            stacked: true
+        }]
+    }
+};
   return (
     <div>
       <GridContainer>
@@ -86,20 +163,37 @@ export default function Dashboard() {
                 1,281
                 </div>
               </h3>
-              </div>
+              </div><br /><br /><br /><br />
+              <div className="review-data">
+                you got <b> +22.3% </b> more reviews than last week
+              </div><br/><br/>
+              <div className="cicon">
+              <div className="contact-icon1">
+                <div className="c1"><AccountCircleSharpIcon /></div>               
+                </div>"      "
+                <div className="contact-icon2">
+                <div className="c2"><AccountCircleSharpIcon /></div>               
+                </div>"      "
+                <div className="contact-icon3">
+                <div className="c3"><AccountCircleSharpIcon /></div>               
+                </div>"      "
+                <div className="contact-icon4">
+                <div className="c4"><AccountCircleSharpIcon /></div>               
+                </div>
+                </div>
               </div>
             </CardHeader>
             <CardFooter stats>
               <div className={classes.stats}>
               </div>
               <div className="wrapper1">
-                  Positive <br/><div className="rev">Put +</div> 
+                  Positive <br/><div className="rev">764</div> 
                 </div>
                 <div className="centerline">
-                  
+
                 </div>
                 <div className="wrapper2">
-                  Negative<br/><div  className="rev">Put -</div>
+                  Negative<br/><div  className="rev">37</div>
                 </div>
             </CardFooter>
           </Card>
@@ -115,14 +209,16 @@ export default function Dashboard() {
               <div className="title">
               <h3 className={classes.cardTitle}>
                 <div className="av-rating">
-                4.6 
+                4.5 
                 </div>
               </h3>
               </div>
+              <Chart type="bar" data={data} />
               </div>
             </CardHeader>
             <CardFooter stats>
-              <div className={classes.stats}>
+              <div className="rating-dot">
+                <StarIcon className={dots.root} /><StarIcon className={dots.root} /><StarIcon className={dots.root} /><StarIcon className={dots.root} /><StarHalfOutlinedIcon className={dots.root} />
               </div>
             </CardFooter>
           </Card>
@@ -149,8 +245,9 @@ export default function Dashboard() {
               </div>
             </CardHeader>
             <CardFooter stats>
-              <div className={classes.stats}>
-              </div>
+                <div className="quote">
+                  <i>Satisfied <b>Client</b> is the Outstanding Business [Game Plan] !</i>
+                </div>
             </CardFooter>
           </Card>
         </GridItem>

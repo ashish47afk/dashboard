@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import '../../assets/css/dashboard.css';
 
 class App extends React.Component {
 
@@ -72,7 +73,7 @@ class App extends React.Component {
         return(
             <div>
                 <h2>Fill to Generate the Annual Analysis</h2>
-                <form onSubmit={this.submit}>
+                <form className="form-style" onSubmit={this.submit}>
                     <div className="form-input">
                         <input
                         type="text"
